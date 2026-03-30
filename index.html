@@ -616,6 +616,48 @@
             color: white;
         }
 
+        /* Share panel */
+        .share-panel {
+            margin-top: 1.2rem;
+            background: rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 14px;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+        .share-panel-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 10px;
+            display: block;
+        }
+        .share-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .share-row:last-child { margin-bottom: 0; }
+        .btn-share {
+            padding: 0.75rem 0.5rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+        .btn-share:hover { transform: translateY(-1px); opacity: 0.9; }
+        .btn-share-email  { background: #4f86c6; color: #fff; }
+        .btn-share-text   { background: #3dba6f; color: #fff; }
+        .btn-share-pdf    { background: white;   color: var(--sage-dark); }
+
         /* Notes */
         .notes-card {
             background: rgba(212, 168, 83, 0.1);
@@ -647,6 +689,8 @@
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
+
+            nav, .top-bar, div[style*="background:#3d5741"] { display: none !important; }
 
             .container {
                 padding: 0;
@@ -769,6 +813,23 @@
     </style>
 </head>
 <body>
+
+<div style="background:#3d5741; color:#f0ece3; text-align:center; padding:9px 24px; font-size:0.82rem; font-weight:600; letter-spacing:0.04em;">
+  📍 Serving <strong style="color:#c4a55a;">Porter Ranch · Granada Hills · Northridge · Chatsworth</strong> — <a href="tel:+17472171927" style="color:#c4a55a;">(747) 217-1927</a>
+</div>
+
+<nav style="position:sticky; top:0; z-index:1000; background:#fff; border-bottom:1px solid #e4ddd1; box-shadow:0 2px 16px rgba(0,0,0,0.06);">
+  <div style="max-width:1200px; margin:0 auto; padding:0 24px; height:72px; display:flex; align-items:center; justify-content:space-between;">
+    <a href="index.html" style="display:flex; align-items:center; gap:12px; text-decoration:none; flex-shrink:0;">
+      <img src="images/caring-moms-community-crest-logo.jpg" alt="Caring Moms Logo" style="width:44px; height:44px; object-fit:contain;" />
+      <div style="line-height:1.1;">
+        <div style="font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:700; color:#3d5741; letter-spacing:0.03em;">Porter Ranch</div>
+        <div style="font-size:0.62rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#c4a55a;">Cleaning Community</div>
+      </div>
+    </a>
+    <a href="tel:+17472171927" style="font-size:0.95rem; font-weight:700; color:#3d5741; text-decoration:none;">📞 (747) 217-1927</a>
+  </div>
+</nav>
     <div class="container">
         <!-- Header -->
         <div class="header">
@@ -790,8 +851,8 @@
                             <input type="text" id="clientName" placeholder="Jane Smith">
                         </div>
                         <div class="input-group">
-                            <label>Phone</label>
-                            <input type="tel" id="clientPhone" placeholder="(818) 555-0123">
+                            <label>Phone <span style="color:#c4a55a;">*</span></label>
+                            <input type="tel" id="clientPhone" placeholder="(818) 555-0123" required>
                         </div>
                         <div class="input-group" style="grid-column: span 2;">
                             <label>Address</label>
@@ -902,6 +963,25 @@
                                     <label for="addonCabinets">Inside cabinets/drawers</label>
                                     <input type="number" id="addonCabinetsQty" class="addon-qty" value="0" min="0" max="50">
                                     <span class="addon-price">× $7</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Window Cleaning Add-on -->
+                        <div class="addon-category">
+                            <div class="addon-category-title">🪟 Window Cleaning</div>
+                            <div class="addon-grid">
+                                <div class="addon-item">
+                                    <input type="checkbox" id="addonWindowSmall">
+                                    <label for="addonWindowSmall">Small window (up to 50″×50″)</label>
+                                    <input type="number" id="addonWindowSmallQty" class="addon-qty" value="1" min="1" max="30">
+                                    <span class="addon-price">$20 ea</span>
+                                </div>
+                                <div class="addon-item">
+                                    <input type="checkbox" id="addonWindowLarge">
+                                    <label for="addonWindowLarge">Large window (up to 80″×80″)</label>
+                                    <input type="number" id="addonWindowLargeQty" class="addon-qty" value="1" min="1" max="30">
+                                    <span class="addon-price">$30 ea</span>
                                 </div>
                             </div>
                         </div>
@@ -1065,16 +1145,21 @@
                         </div>
                     </div>
 
-                    <button class="btn-save" onclick="saveQuote()" id="btnSave">
-                        💾 Save Quote to Sheet
-                    </button>
+                    <!-- Share Panel -->
+                    <div class="share-panel">
+                        <span class="share-panel-label">Share this quote</span>
+                        <div class="share-row">
+                            <button class="btn-share btn-share-email" onclick="emailQuote()">📧 Email</button>
+                            <button class="btn-share btn-share-text"  onclick="textQuote()">💬 Text</button>
+                        </div>
+                        <div class="share-row" style="grid-template-columns:1fr;">
+                            <button class="btn-share btn-share-pdf" onclick="printQuote()">🖨️ Print / PDF</button>
+                        </div>
+                    </div>
+
                     <div class="save-status" id="saveStatus"></div>
-                    <button class="btn-print" onclick="printQuote()">
-                        🖨️ Print Quote
-                    </button>
-                    <button class="btn-reset" onclick="resetForm()">
-                        Reset Calculator
-                    </button>
+
+                    <button class="btn-reset" onclick="resetForm()">↺ Reset Calculator</button>
                 </div>
             </div>
         </div>
@@ -1122,7 +1207,7 @@
             <div class="print-footer">
                 <p>Valid for 30 days • 24-hour cancellation policy ($50 fee for shorter notice)</p>
                 <p>First cleaning requires card payment • Questions? Call us!</p>
-                <p style="margin-top: 0.5rem; font-weight: 500;">📞 (323) 364-3439 • (818) 350-5636</p>
+                <p style="margin-top: 0.5rem; font-weight: 500;">📞 (747) 217-1927</p>
             </div>
         </div>
     </div>
@@ -1156,6 +1241,8 @@
             addonFridge: { price: 30, name: 'Inside refrigerator' },
             addonOven: { price: 40, name: 'Inside oven' },
             addonCabinets: { price: 7, name: 'Cabinets/drawers', hasQty: true, qtyId: 'addonCabinetsQty' },
+            addonWindowSmall: { price: 20, name: 'Window cleaning (small, up to 50″×50″)', hasQty: true, qtyId: 'addonWindowSmallQty' },
+            addonWindowLarge: { price: 30, name: 'Window cleaning (large, up to 80″×80″)', hasQty: true, qtyId: 'addonWindowLargeQty' },
             addonLaundry: { price: 30, name: 'Laundry load', hasQty: true, qtyId: 'addonLaundryQty' },
             addonDiningChair: { price: 30, name: 'Dining/accent chair', hasQty: true, qtyId: 'addonDiningChairQty', extraction: true },
             addonArmchair: { price: 40, name: 'Armchair', hasQty: true, qtyId: 'addonArmchairQty', extraction: true },
@@ -1413,6 +1500,7 @@
 
         function printQuote() {
             calculate(); // Ensure latest data
+            saveQuote({ silent: true }); // Fire and forget — save runs in background
             window.print();
         }
 
@@ -1446,24 +1534,28 @@
         // Replace this URL with your Google Apps Script Web App URL
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzDyJUVJoLgsUXDttdaAaR9WetKxXumJ6d_vs8_x2oU3F0hUokRse_CyM6pP1DxOhQ3Tw/exec';
 
-        async function saveQuote() {
+        async function saveQuote({ silent = false } = {}) {
             const btn = document.getElementById('btnSave');
             const status = document.getElementById('saveStatus');
-            
+
             // Validate required fields
             const clientName = document.getElementById('clientName').value.trim();
             const clientPhone = document.getElementById('clientPhone').value.trim();
-            
+
             if (!clientName || !clientPhone) {
-                status.className = 'save-status error';
-                status.textContent = '⚠️ Please enter client name and phone';
+                if (!silent) {
+                    status.className = 'save-status error';
+                    status.textContent = '⚠️ Please enter client name and phone';
+                }
                 return;
             }
 
             // Check if Google Script URL is configured
             if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
-                status.className = 'save-status error';
-                status.textContent = '⚠️ Google Sheets not configured. See setup instructions.';
+                if (!silent) {
+                    status.className = 'save-status error';
+                    status.textContent = '⚠️ Google Sheets not configured. See setup instructions.';
+                }
                 return;
             }
             
@@ -1551,19 +1643,24 @@
                 });
 
                 // With no-cors, we can't read the response, but if no error thrown, assume success
-                status.className = 'save-status success';
-                status.textContent = '✅ Quote saved to Google Sheets!';
-                btn.textContent = '✓ Saved!';
-                
-                setTimeout(() => {
+                if (!silent) {
+                    status.className = 'save-status success';
+                    status.textContent = '✅ Quote saved to Google Sheets!';
+                    btn.textContent = '✓ Saved!';
+                    setTimeout(() => {
+                        btn.disabled = false;
+                        btn.textContent = '💾 Save Quote to Sheet';
+                    }, 2000);
+                } else {
                     btn.disabled = false;
-                    btn.textContent = '💾 Save Quote to Sheet';
-                }, 2000);
+                }
 
             } catch (error) {
                 console.error('Error saving quote:', error);
-                status.className = 'save-status error';
-                status.textContent = '❌ Error saving. Check connection and try again.';
+                if (!silent) {
+                    status.className = 'save-status error';
+                    status.textContent = '❌ Error saving. Check connection and try again.';
+                }
                 btn.disabled = false;
                 btn.textContent = '💾 Save Quote to Sheet';
             }
@@ -1581,6 +1678,180 @@
 
         // Initial calculation
         calculate();
+
+        // ── SHARE QUOTE ──────────────────────────────────────────
+        const checkboxAddons = [
+            'addonFridge','addonOven','addonCabinets',
+            'addonWindowSmall','addonWindowLarge',
+            'addonLaundry',
+            'addonDiningChair','addonArmchair','addonLoveseat','addonSofa','addonSectional',
+            'addonMattress1','addonMattress2',
+            'addonCarpetSmall','addonCarpetMed','addonCarpetLarge','addonHallStairs','addonAreaRug'
+        ];
+        const qtyAddons = [
+            'addonCabinetsQty','addonWindowSmallQty','addonWindowLargeQty',
+            'addonLaundryQty','addonDiningChairQty','addonArmchairQty',
+            'addonLoveseatQty','addonSofaQty','addonSectionalQty',
+            'addonMattress1Qty','addonMattress2Qty',
+            'addonCarpetSmallQty','addonCarpetMedQty','addonCarpetLargeQty',
+            'addonHallStairsQty','addonAreaRugQty'
+        ];
+
+        // ── BUILD PLAIN-TEXT QUOTE ────────────────────────────────
+        function buildQuoteText() {
+            calculate();
+            const name    = document.getElementById('clientName').value    || '—';
+            const phone   = document.getElementById('clientPhone').value   || '—';
+            const address = document.getElementById('clientAddress').value || '—';
+            const notes   = document.getElementById('clientNotes').value;
+            const total   = document.getElementById('printTotal').textContent;
+            const date    = document.getElementById('printDate').textContent;
+
+            // Read line items already rendered by calculate()
+            const rows = document.querySelectorAll('#printServiceDetails .print-row');
+            const lines = [];
+            rows.forEach(row => {
+                const spans = row.querySelectorAll('span');
+                if (spans.length >= 2) {
+                    const label = spans[0].innerText.trim();
+                    const price = spans[1].innerText.trim();
+                    lines.push(`  ${label}: ${price}`);
+                }
+            });
+
+            let t = `🌿 Caring Moms Community – Cleaning Quote\n`;
+            t += `${date}\n\n`;
+            t += `CLIENT\n`;
+            t += `Name: ${name}\n`;
+            t += `Phone: ${phone}\n`;
+            t += `Address: ${address}\n`;
+            if (notes) t += `Notes: ${notes}\n`;
+            t += `\nSERVICE BREAKDOWN\n`;
+            t += lines.join('\n') + '\n';
+            t += `\n──────────────────\n`;
+            t += `TOTAL: ${total}\n\n`;
+            t += `Ready to book? caringmoms.org/book\n`;
+            t += `Call/text: (747) 217-1927\n`;
+            t += `Email: hello@caringmoms.org`;
+            return t;
+        }
+
+        function emailQuote() {
+            const text = buildQuoteText();
+            saveQuote({ silent: true });
+            const subj = encodeURIComponent(`Your Cleaning Quote – Caring Moms`);
+            const body = encodeURIComponent(text);
+            window.location.href = `mailto:?subject=${subj}&body=${body}`;
+        }
+
+        function textQuote() {
+            const text = buildQuoteText();
+            saveQuote({ silent: true });
+            window.location.href = `sms:?body=${encodeURIComponent(text)}`;
+        }
+
+        function shareQuote() {
+            const params = new URLSearchParams();
+
+            // Service type
+            const svc = document.querySelector('input[name="serviceType"]:checked');
+            if (svc) params.set('svc', svc.value);
+
+            // Home size
+            const sz = document.querySelector('input[name="homeSize"]:checked');
+            if (sz) params.set('sz', sz.value);
+
+            // Family care
+            if (document.getElementById('familyCare')?.checked) params.set('fc', '1');
+
+            // Recurring discount
+            const rec = document.getElementById('recurringDiscount')?.value;
+            if (rec) params.set('rec', rec);
+
+            // Referral
+            if (document.getElementById('referralDiscount')?.checked) params.set('ref', '1');
+
+            // Checkboxes
+            checkboxAddons.forEach(id => {
+                if (document.getElementById(id)?.checked) params.set(id, '1');
+            });
+
+            // Quantities
+            qtyAddons.forEach(id => {
+                const el = document.getElementById(id);
+                if (el && el.value !== '1' && el.value !== '0') params.set(id, el.value);
+            });
+
+            const url = window.location.origin + window.location.pathname + '?' + params.toString();
+            navigator.clipboard.writeText(url).catch(() => {});
+
+            document.getElementById('shareLinkText').textContent = url;
+            document.getElementById('shareLinkBox').style.display = 'block';
+            setTimeout(() => document.getElementById('shareLinkBox').style.display = 'none', 8000);
+        }
+
+        // ── RESTORE FROM URL ─────────────────────────────────────
+        function restoreFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            if (!params.toString()) return;
+
+            const svc = params.get('svc');
+            if (svc) {
+                const el = document.querySelector(`input[name="serviceType"][value="${svc}"]`);
+                if (el) { el.checked = true; el.dispatchEvent(new Event('change')); }
+            }
+
+            const sz = params.get('sz');
+            if (sz) {
+                const el = document.querySelector(`input[name="homeSize"][value="${sz}"]`);
+                if (el) { el.checked = true; el.dispatchEvent(new Event('change')); }
+            }
+
+            if (params.get('fc') === '1') {
+                const el = document.getElementById('familyCare');
+                if (el) { el.checked = true; el.dispatchEvent(new Event('change')); }
+            }
+
+            const rec = params.get('rec');
+            if (rec) {
+                const el = document.getElementById('recurringDiscount');
+                if (el) { el.value = rec; el.dispatchEvent(new Event('change')); }
+            }
+
+            if (params.get('ref') === '1') {
+                const el = document.getElementById('referralDiscount');
+                if (el) { el.checked = true; el.dispatchEvent(new Event('change')); }
+            }
+
+            checkboxAddons.forEach(id => {
+                if (params.get(id) === '1') {
+                    const el = document.getElementById(id);
+                    if (el) { el.checked = true; el.dispatchEvent(new Event('change')); }
+                }
+            });
+
+            qtyAddons.forEach(id => {
+                const val = params.get(id);
+                if (val) {
+                    const el = document.getElementById(id);
+                    if (el) { el.value = val; el.dispatchEvent(new Event('input')); }
+                }
+            });
+
+            // Trigger full recalculation
+            setTimeout(() => document.querySelectorAll('input, select').forEach(el => el.dispatchEvent(new Event('change'))), 100);
+        }
+
+        document.addEventListener('DOMContentLoaded', restoreFromURL);
+
+        // Live update client info on the quote as user types
+        ['clientName', 'clientPhone', 'clientAddress'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.addEventListener('input', () => {
+                document.getElementById('print' + id.charAt(0).toUpperCase() + id.slice(1)).textContent = el.value || '—';
+            });
+        });
+
     </script>
 </body>
 </html>
