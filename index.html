@@ -824,7 +824,7 @@
       <img src="images/caring-moms-community-crest-logo.jpg" alt="Caring Moms Logo" style="width:44px; height:44px; object-fit:contain;" />
       <div style="line-height:1.1;">
         <div style="font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:700; color:#3d5741; letter-spacing:0.03em;">Porter Ranch</div>
-        <div style="font-size:0.62rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#c4a55a;">Cleaning Community</div>
+        <div style="font-size:0.62rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#c4a55a;">House Cleaning Services</div>
       </div>
     </a>
     <a href="tel:+17472171927" style="font-size:0.95rem; font-weight:700; color:#3d5741; text-decoration:none;">📞 (747) 217-1927</a>
@@ -880,48 +880,39 @@
                         <div class="service-option">
                             <input type="radio" id="servicePremium" name="serviceType" value="premium" checked>
                             <label for="servicePremium">
-                                <div class="service-name">Premium Clean</div>
+                                <div class="service-name">Deep Clean</div>
                                 <div class="service-desc">Deep Clean / Reset</div>
-                                <div class="service-price" id="premiumPriceDisplay">From $220</div>
+                                <div class="service-price" id="premiumPriceDisplay">From $260</div>
                             </label>
                         </div>
                     </div>
 
-                    <div class="input-group">
-                        <label style="margin-bottom: 0.5rem;">Home Size</label>
-                        <div class="home-size-grid" style="grid-template-columns: repeat(4, 1fr);">
-                            <div class="home-size-option">
-                                <input type="radio" id="size1b1b" name="homeSize" value="1b1b">
-                                <label for="size1b1b">1 bed<br>1 bath</label>
-                            </div>
-                            <div class="home-size-option">
-                                <input type="radio" id="size2b1b" name="homeSize" value="2b1b">
-                                <label for="size2b1b">2 bed<br>1 bath</label>
-                            </div>
-                            <div class="home-size-option">
-                                <input type="radio" id="size2b2b" name="homeSize" value="2b2b">
-                                <label for="size2b2b">2 bed<br>2 bath</label>
-                            </div>
-                            <div class="home-size-option">
-                                <input type="radio" id="size3b2b" name="homeSize" value="3b2b" checked>
-                                <label for="size3b2b">3 bed<br>2 bath</label>
-                            </div>
-                            <div class="home-size-option">
-                                <input type="radio" id="size3b3b" name="homeSize" value="3b3b">
-                                <label for="size3b3b">3 bed<br>3 bath</label>
-                            </div>
-                            <div class="home-size-option">
-                                <input type="radio" id="size4b3b" name="homeSize" value="4b3b">
-                                <label for="size4b3b">4 bed<br>3 bath</label>
-                            </div>
-                            <div class="home-size-option">
-                                <input type="radio" id="size4b4b" name="homeSize" value="4b4b">
-                                <label for="size4b4b">4 bed<br>4 bath</label>
-                            </div>
-                            <div class="home-size-option">
-                                <input type="radio" id="size5b4b" name="homeSize" value="5b4b">
-                                <label for="size5b4b">5 bed<br>4 bath</label>
-                            </div>
+                    <div class="input-group" style="margin-top: 0.5rem;">
+                        <label style="margin-bottom: 0.5rem;">Bedrooms</label>
+                        <div class="home-size-grid" style="grid-template-columns: repeat(6, 1fr);">
+                            <div class="home-size-option"><input type="radio" id="bed1" name="bedCount" value="1"><label for="bed1">1</label></div>
+                            <div class="home-size-option"><input type="radio" id="bed2" name="bedCount" value="2"><label for="bed2">2</label></div>
+                            <div class="home-size-option"><input type="radio" id="bed3" name="bedCount" value="3" checked><label for="bed3">3</label></div>
+                            <div class="home-size-option"><input type="radio" id="bed4" name="bedCount" value="4"><label for="bed4">4</label></div>
+                            <div class="home-size-option"><input type="radio" id="bed5" name="bedCount" value="5"><label for="bed5">5</label></div>
+                            <div class="home-size-option"><input type="radio" id="bed6" name="bedCount" value="6"><label for="bed6">6</label></div>
+                        </div>
+                    </div>
+                    <div class="input-group" style="margin-top: 1rem;">
+                        <label style="margin-bottom: 0.5rem;">Bathrooms</label>
+                        <div class="home-size-grid" style="grid-template-columns: repeat(6, 1fr); gap: 0.4rem;">
+                            <div class="home-size-option"><input type="radio" id="bath1" name="bathCount" value="1"><label for="bath1">1</label></div>
+                            <div class="home-size-option"><input type="radio" id="bath1h" name="bathCount" value="1.5"><label for="bath1h">1.5</label></div>
+                            <div class="home-size-option"><input type="radio" id="bath2" name="bathCount" value="2" checked><label for="bath2">2</label></div>
+                            <div class="home-size-option"><input type="radio" id="bath2h" name="bathCount" value="2.5"><label for="bath2h">2.5</label></div>
+                            <div class="home-size-option"><input type="radio" id="bath3" name="bathCount" value="3"><label for="bath3">3</label></div>
+                            <div class="home-size-option"><input type="radio" id="bath3h" name="bathCount" value="3.5"><label for="bath3h">3.5</label></div>
+                            <div class="home-size-option"><input type="radio" id="bath4" name="bathCount" value="4"><label for="bath4">4</label></div>
+                            <div class="home-size-option"><input type="radio" id="bath4h" name="bathCount" value="4.5"><label for="bath4h">4.5</label></div>
+                            <div class="home-size-option"><input type="radio" id="bath5" name="bathCount" value="5"><label for="bath5">5</label></div>
+                            <div class="home-size-option"><input type="radio" id="bath5h" name="bathCount" value="5.5"><label for="bath5h">5.5</label></div>
+                            <div class="home-size-option"><input type="radio" id="bath6" name="bathCount" value="6"><label for="bath6">6</label></div>
+                            <div class="home-size-option"><input type="radio" id="bath6h" name="bathCount" value="6.5"><label for="bath6h">6.5</label></div>
                         </div>
                     </div>
 
@@ -1213,29 +1204,28 @@
     </div>
 
     <script>
-        // Pricing Data
-        const pricing = {
-            basic: {
-                '1b1b': { price: 160, hours1: 2.5 },
-                '2b1b': { price: 180, hours1: 3.0 },
-                '2b2b': { price: 200, hours1: 3.5 },
-                '3b2b': { price: 250, hours1: 4.5 },
-                '3b3b': { price: 300, hours1: 5.5 },
-                '4b3b': { price: 350, hours1: 6.5 },
-                '4b4b': { price: 400, hours1: 7.5 },
-                '5b4b': { price: 450, hours1: 8.5 }
-            },
-            premium: {
-                '1b1b': { price: 220, hours1: 3.0 },
-                '2b1b': { price: 250, hours1: 4.0 },
-                '2b2b': { price: 280, hours1: 4.5 },
-                '3b2b': { price: 340, hours1: 5.5 },
-                '3b3b': { price: 400, hours1: 6.5 },
-                '4b3b': { price: 470, hours1: 7.5 },
-                '4b4b': { price: 540, hours1: 8.5 },
-                '5b4b': { price: 610, hours1: 9.5 }
-            }
-        };
+        // Pricing Formula
+        // Basic:    base $100 + each bed×$20 + each full bath×$40 + each half bath×$20
+        // Deep Clean: base $200 + each bed×$20 + each full bath×$40 + each half bath×$20
+        const BASE_PRICE = { basic: 100, premium: 200 };
+        const BED_RATE   = 20;
+        const BATH_RATE  = 40;
+        const HALF_RATE  = 20;
+        const HOURS_PER_BED  = 0.5;
+        const HOURS_PER_BATH = 0.75;
+
+        function calcPrice(serviceType, beds, baths) {
+            const base      = BASE_PRICE[serviceType];
+            const bedCost   = beds * BED_RATE;
+            const fullBaths = Math.floor(baths);
+            const halfBath  = (baths % 1 !== 0) ? 1 : 0;
+            const bathCost  = fullBaths * BATH_RATE + halfBath * HALF_RATE;
+            return base + bedCost + bathCost;
+        }
+
+        function calcHours(beds, baths) {
+            return Math.round((2 + beds * HOURS_PER_BED + baths * HOURS_PER_BATH) * 2) / 2;
+        }
 
         const addons = {
             addonFridge: { price: 30, name: 'Inside refrigerator' },
@@ -1258,9 +1248,14 @@
             addonAreaRug: { price: 50, name: 'Area rug', hasQty: true, qtyId: 'addonAreaRugQty', extraction: true }
         };
 
-        function getSelectedHomeSize() {
-            const selected = document.querySelector('input[name="homeSize"]:checked');
-            return selected ? selected.value : '3b2b';
+        function getSelectedBeds() {
+            const selected = document.querySelector('input[name="bedCount"]:checked');
+            return selected ? parseFloat(selected.value) : 3;
+        }
+
+        function getSelectedBaths() {
+            const selected = document.querySelector('input[name="bathCount"]:checked');
+            return selected ? parseFloat(selected.value) : 2;
         }
 
         function getSelectedServiceType() {
@@ -1268,31 +1263,22 @@
             return selected ? selected.value : 'premium';
         }
 
-        function formatHomeSize(size) {
-            const map = {
-                '1b1b': '1 bed / 1 bath',
-                '2b1b': '2 bed / 1 bath',
-                '2b2b': '2 bed / 2 bath',
-                '3b2b': '3 bed / 2 bath',
-                '3b3b': '3 bed / 3 bath',
-                '4b3b': '4 bed / 3 bath',
-                '4b4b': '4 bed / 4 bath',
-                '5b4b': '5 bed / 4 bath'
-            };
-            return map[size] || size;
+        function formatHomeSize(beds, baths) {
+            const bathLabel = Number.isInteger(baths) ? baths : baths.toFixed(1);
+            return `${beds} bed / ${bathLabel} bath`;
         }
 
         function calculate() {
             const serviceType = getSelectedServiceType();
-            const homeSize = getSelectedHomeSize();
+            const beds  = getSelectedBeds();
+            const baths = getSelectedBaths();
             const familyCare = document.getElementById('familyCare').checked;
             const recurringDiscount = parseInt(document.getElementById('recurringDiscount').value) || 0;
             const referralDiscount = document.getElementById('referralDiscount').checked ? 25 : 0;
 
             // Base price
-            const baseData = pricing[serviceType][homeSize];
-            let basePrice = baseData.price;
-            let hours1 = baseData.hours1;
+            let basePrice = calcPrice(serviceType, beds, baths);
+            let hours1    = calcHours(beds, baths);
 
             // Family care
             let familyCarePrice = familyCare ? 50 : 0;
@@ -1345,17 +1331,21 @@
             // Total
             let total = subtotal - discountAmount - referralDiscount;
 
+            // Update service card price displays
+            document.getElementById('basicPriceDisplay').textContent   = `From $${calcPrice('basic',   beds, baths)}`;
+            document.getElementById('premiumPriceDisplay').textContent  = `From $${calcPrice('premium', beds, baths)}`;
+
             // Update summary
-            updateSummary(serviceType, homeSize, basePrice, familyCare, familyCarePrice, addonsList, addonsTotal, recurringDiscount, discountAmount, referralDiscount, total, hours1);
+            updateSummary(serviceType, beds, baths, basePrice, familyCare, familyCarePrice, addonsList, addonsTotal, recurringDiscount, discountAmount, referralDiscount, total, hours1);
         }
 
-        function updateSummary(serviceType, homeSize, basePrice, familyCare, familyCarePrice, addonsList, addonsTotal, recurringPct, discountAmount, referralDiscount, total, hours1) {
+        function updateSummary(serviceType, beds, baths, basePrice, familyCare, familyCarePrice, addonsList, addonsTotal, recurringPct, discountAmount, referralDiscount, total, hours1) {
             const summaryDetails = document.getElementById('summaryDetails');
-            const serviceName = serviceType === 'premium' ? 'Premium Clean' : 'Basic Clean';
-            
+            const serviceName = serviceType === 'premium' ? 'Deep Clean' : 'Basic Clean';
+
             let html = `
                 <div class="summary-row">
-                    <span class="summary-label">${serviceName} (${formatHomeSize(homeSize)})</span>
+                    <span class="summary-label">${serviceName} (${formatHomeSize(beds, baths)})</span>
                     <span class="summary-value">$${basePrice}</span>
                 </div>
             `;
@@ -1412,16 +1402,16 @@
             document.getElementById('timeEstimate').textContent = `⏱️ Est. ${hours1} hrs (1 mom) or ${hours2} hrs (2 moms)`;
 
             // Update print version
-            updatePrintVersion(serviceType, homeSize, basePrice, familyCare, familyCarePrice, addonsList, addonsTotal, recurringPct, discountAmount, referralDiscount, total, hours1);
+            updatePrintVersion(serviceType, beds, baths, basePrice, familyCare, familyCarePrice, addonsList, addonsTotal, recurringPct, discountAmount, referralDiscount, total, hours1);
         }
 
-        function updatePrintVersion(serviceType, homeSize, basePrice, familyCare, familyCarePrice, addonsList, addonsTotal, recurringPct, discountAmount, referralDiscount, total, hours1) {
-            const serviceName = serviceType === 'premium' ? 'Premium Clean' : 'Basic Clean';
+        function updatePrintVersion(serviceType, beds, baths, basePrice, familyCare, familyCarePrice, addonsList, addonsTotal, recurringPct, discountAmount, referralDiscount, total, hours1) {
+            const serviceName = serviceType === 'premium' ? 'Deep Clean' : 'Basic Clean';
             const hours2 = hours1 / 2;
-            
+
             let html = `
                 <div class="print-row">
-                    <span>${serviceName} (${formatHomeSize(homeSize)})</span>
+                    <span>${serviceName} (${formatHomeSize(beds, baths)})</span>
                     <span>$${basePrice}</span>
                 </div>
             `;
@@ -1511,7 +1501,8 @@
             document.getElementById('clientAddress').value = '';
             document.getElementById('clientNotes').value = '';
             document.getElementById('servicePremium').checked = true;
-            document.getElementById('size3b2b').checked = true;
+            document.getElementById('bed3').checked = true;
+            document.getElementById('bath2').checked = true;
             document.getElementById('familyCare').checked = false;
             document.getElementById('recurringDiscount').value = '0';
             document.getElementById('referralDiscount').checked = false;
@@ -1567,7 +1558,8 @@
 
             // Gather all data
             const serviceType = getSelectedServiceType();
-            const homeSize = getSelectedHomeSize();
+            const beds  = getSelectedBeds();
+            const baths = getSelectedBaths();
             const familyCare = document.getElementById('familyCare').checked;
             const recurringDiscount = document.getElementById('recurringDiscount').value;
             const referralDiscount = document.getElementById('referralDiscount').checked;
@@ -1594,8 +1586,7 @@
             };
 
             // Calculate total
-            const baseData = pricing[serviceType][homeSize];
-            let subtotal = baseData.price + (familyCare ? 50 : 0);
+            let subtotal = calcPrice(serviceType, beds, baths) + (familyCare ? 50 : 0);
             
             // Add add-ons total
             for (const [id, data] of Object.entries(addons)) {
@@ -1619,8 +1610,8 @@
                 clientName: clientName,
                 clientPhone: clientPhone,
                 clientAddress: document.getElementById('clientAddress').value.trim(),
-                serviceType: serviceType === 'premium' ? 'Premium Clean' : 'Basic Clean',
-                homeSize: formatHomeSize(homeSize),
+                serviceType: serviceType === 'premium' ? 'Deep Clean' : 'Basic Clean',
+                homeSize: formatHomeSize(beds, baths),
                 familyCare: familyCare ? 'Yes' : 'No',
                 addons: selectedAddons.join(', ') || 'None',
                 recurring: recurringLabels[recurringDiscount] || 'One-time',
@@ -1757,9 +1748,11 @@
             const svc = document.querySelector('input[name="serviceType"]:checked');
             if (svc) params.set('svc', svc.value);
 
-            // Home size
-            const sz = document.querySelector('input[name="homeSize"]:checked');
-            if (sz) params.set('sz', sz.value);
+            // Beds & baths
+            const bd = document.querySelector('input[name="bedCount"]:checked');
+            if (bd) params.set('bd', bd.value);
+            const bt = document.querySelector('input[name="bathCount"]:checked');
+            if (bt) params.set('bt', bt.value);
 
             // Family care
             if (document.getElementById('familyCare')?.checked) params.set('fc', '1');
@@ -1801,10 +1794,15 @@
                 if (el) { el.checked = true; el.dispatchEvent(new Event('change')); }
             }
 
-            const sz = params.get('sz');
-            if (sz) {
-                const el = document.querySelector(`input[name="homeSize"][value="${sz}"]`);
-                if (el) { el.checked = true; el.dispatchEvent(new Event('change')); }
+            const bd = params.get('bd');
+            if (bd) {
+                const el = document.querySelector(`input[name="bedCount"][value="${bd}"]`);
+                if (el) { el.checked = true; }
+            }
+            const bt = params.get('bt');
+            if (bt) {
+                const el = document.querySelector(`input[name="bathCount"][value="${bt}"]`);
+                if (el) { el.checked = true; }
             }
 
             if (params.get('fc') === '1') {
